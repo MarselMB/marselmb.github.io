@@ -66,6 +66,13 @@ module.exports = (_, args) => {
           type: 'asset/inline',
         },
         {
+          test: /\.(png|jpg|gif|svg)$/,
+          type: 'asset/resource',
+          generator: {
+            filename: 'images/[name].[hash][ext]',
+          },
+        },
+        {
           test: /\.s[ac]ss$/i,
           use: [
             {
