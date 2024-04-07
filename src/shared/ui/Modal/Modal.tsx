@@ -1,21 +1,16 @@
-import React, { FC, ReactNode, useEffect, useState } from 'react';
+import React, { FC, ReactNode } from 'react';
 import close from './close.png';
 import styles from './Modal.module.scss';
 
 interface ModalProps {
   visible: boolean;
   children: ReactNode;
+  setVisible: (visible: boolean) => void;
 }
 
-const Modal: FC<ModalProps> = ({ visible, children }) => {
-  const [isShow, setIsShow] = useState<boolean>(false);
-
-  useEffect(() => {
-    setIsShow(visible);
-  }, [visible]);
-
+const Modal: FC<ModalProps> = ({ visible, children, setVisible }) => {
   const handleOnClose = () => {
-    setIsShow(false);
+    setVisible(false);
   };
 
   const handleOnClickModal = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -26,7 +21,7 @@ const Modal: FC<ModalProps> = ({ visible, children }) => {
 
   return (
     <>
-      {isShow && (
+      {visible && (
         <div className={styles.modal} onClick={handleOnClickModal}>
           <div className={styles.modalContent}>
             {children}

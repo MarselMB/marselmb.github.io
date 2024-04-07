@@ -1,0 +1,9 @@
+@import '../../app/styles/vars';
+
+main {
+  overflow: auto;
+  height: calc(100vh - $headerHeight);
+  background-color: #f6f9fc;
+  display: flex;
+  padding: 40px;
+}
