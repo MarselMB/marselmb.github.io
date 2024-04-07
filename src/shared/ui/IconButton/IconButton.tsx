@@ -3,13 +3,13 @@ import styles from './IconButton.module.scss';
 
 interface IconButtonProps {
   handleOnClick: () => void;
-  pathToImg: string;
+  img: string;
 }
 
-const IconButton: FC<IconButtonProps> = ({ handleOnClick, pathToImg }) => {
+const IconButton: FC<IconButtonProps> = ({ handleOnClick, img }) => {
   return (
     <button className={styles.iconButton} onClick={handleOnClick}>
-      <img src={pathToImg} alt="close" className={styles.img} />
+      <img src={img} alt="close" className={styles.img} />
     </button>
   );
 };

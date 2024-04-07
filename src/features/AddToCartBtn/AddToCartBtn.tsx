@@ -25,9 +25,9 @@ const AddToCartBtn: FC<AddToCartBtnProps> = ({ counter, setCounter }) => {
 
       {!!counter && (
         <div className={styles.counterBtn}>
-          <IconButton pathToImg={plus} handleOnClick={handleOnclickPlus} />
+          <IconButton img={plus} handleOnClick={handleOnclickPlus} />
           <h5 className={styles.counterText}>{counter}</h5>
-          <IconButton pathToImg={minus} handleOnClick={handleOnclickMinus} />
+          <IconButton img={minus} handleOnClick={handleOnclickMinus} />
         </div>
       )}
     </div>
