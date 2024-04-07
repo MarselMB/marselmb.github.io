@@ -5,5 +5,7 @@ main {
   height: calc(100vh - $headerHeight);
   background-color: #f6f9fc;
   display: flex;
+  flex-direction: column;
+  row-gap: 50px;
   padding: 40px;
 }

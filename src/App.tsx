@@ -3,9 +3,11 @@ import './App.css';
 import Layout from './widgets/Layout';
 import { BrowserRouter } from 'react-router-dom';
 import Modal from './shared/ui/Modal';
+import AddToCartBtn from './features/AddToCartBtn';
 
 function App() {
   const [visibleModal, setVisibleModal] = useState<boolean>(false);
+  const [counter, setCounter] = useState<number>(0);
 
   const handleOnClickOpenModal = () => {
     setVisibleModal(true);
@@ -18,6 +20,10 @@ function App() {
           <button type="button" onClick={handleOnClickOpenModal}>
             Open modal
           </button>
+        </div>
+
+        <div>
+          <AddToCartBtn counter={counter} setCounter={setCounter} />
         </div>
 
         <Modal visible={visibleModal} setVisible={setVisibleModal}>

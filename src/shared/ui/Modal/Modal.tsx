@@ -1,6 +1,7 @@
 import React, { FC, ReactNode } from 'react';
-import close from './close.png';
+import close from './close.svg';
 import styles from './Modal.module.scss';
+import IconButton from '../IconButton';
 
 interface ModalProps {
   visible: boolean;
@@ -25,9 +26,9 @@ const Modal: FC<ModalProps> = ({ visible, children, setVisible }) => {
         <div className={styles.modal} onClick={handleOnClickModal}>
           <div className={styles.modalContent}>
             {children}
-            <button className={styles.closeButton} onClick={handleOnClose}>
-              <img src={close} alt="close" className={styles.img} />
-            </button>
+            <div className={styles.closeButton}>
+              <IconButton pathToImg={close} handleOnClick={handleOnClose} />
+            </div>
           </div>
         </div>
       )}
