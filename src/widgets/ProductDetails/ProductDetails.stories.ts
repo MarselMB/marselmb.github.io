@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ProductCard from './ProductCard';
+import ProductDetails from './ProductDetails';
 import { PRODUCT_1 } from '../../app/constants/temp';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
-const meta: Meta<typeof ProductCard> = {
-  title: 'ProductCard',
-  component: ProductCard,
+const meta: Meta<typeof ProductDetails> = {
+  title: 'ProductDetails',
+  component: ProductDetails,
   tags: ['autodocs'],
 };
 
@@ -17,6 +17,7 @@ type Story = StoryObj<typeof meta>;
 export const Example: Story = {
   args: {
     price: PRODUCT_1.price,
+    category: PRODUCT_1.category,
     img: PRODUCT_1.img,
     name: PRODUCT_1.name,
     description: PRODUCT_1.description,

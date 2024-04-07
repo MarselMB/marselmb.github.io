@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import './App.css';
 import Layout from './widgets/Layout';
 import { BrowserRouter } from 'react-router-dom';
 import Modal from './shared/ui/Modal';
 import AddToCartBtn from './features/AddToCartBtn';
 import ProductCard from './widgets/ProductCard';
-import img from './widgets/ProductCard/1.png';
+import ProductDetails from './widgets/ProductDetails';
+import { PRODUCT_1 } from './app/constants/temp';
 
 function App() {
   const [visibleModal, setVisibleModal] = useState<boolean>(false);
@@ -30,12 +30,20 @@ function App() {
 
         <div>
           <ProductCard
-            price={1000}
-            img={img}
-            name={'Lord 2024'}
-            description={
-              'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique atque ea quod? Tempore debitis consectetur repellendus minus quae deserunt voluptatibus velit provident nihil, eaque, eos officia a, autem at temporibus!'
-            }
+            price={PRODUCT_1.price}
+            img={PRODUCT_1.img}
+            name={PRODUCT_1.name}
+            description={PRODUCT_1.description}
+          />
+        </div>
+
+        <div>
+          <ProductDetails
+            price={PRODUCT_1.price}
+            category={PRODUCT_1.category}
+            img={PRODUCT_1.img}
+            name={PRODUCT_1.name}
+            description={PRODUCT_1.description}
           />
         </div>
 

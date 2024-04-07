@@ -1,31 +1,30 @@
 import React, { FC, useState } from 'react';
 import AddToCartBtn from '../../features/AddToCartBtn';
-import styles from './ProductCard.module.scss';
+import styles from './ProductDetails.module.scss';
 
-interface ProductCardProps {
+interface ProductDetailsProps {
   price: number;
   img: string;
   name: string;
+  category: string;
   description: string;
 }
 
-const ProductCard: FC<ProductCardProps> = ({ price, img, name, description }) => {
+const ProductDetails: FC<ProductDetailsProps> = ({ price, img, name, category, description }) => {
   const [counter, setCounter] = useState<number>(0);
   return (
-    <div className={styles.cardProduct}>
+    <div className={styles.productDetails}>
       <img src={img} alt="imgProduct" className={styles.img} />
 
       <div className={styles.textContent}>
         <h3 className={styles.name}>{name}</h3>
+        <h5 className={styles.category}>{category}</h5>
         <p className={styles.description}>{description}</p>
-
-        <div className={styles.purchaseContent}>
-          <h3 className={styles.price}>{`$${price}`}</h3>
-          <AddToCartBtn counter={counter} setCounter={setCounter} />
-        </div>
+        <h3 className={styles.price}>{`$${price}`}</h3>
+        <AddToCartBtn counter={counter} setCounter={setCounter} />
       </div>
     </div>
   );
 };
 
-export default ProductCard;
+export default ProductDetails;
