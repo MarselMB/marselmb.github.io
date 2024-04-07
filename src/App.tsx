@@ -6,6 +6,7 @@ import AddToCartBtn from './features/AddToCartBtn';
 import ProductCard from './widgets/ProductCard';
 import ProductDetails from './widgets/ProductDetails';
 import { PRODUCT_1 } from './app/constants/temp';
+import CartItem from './widgets/CartItem';
 
 function App() {
   const [visibleModal, setVisibleModal] = useState<boolean>(false);
@@ -44,6 +45,16 @@ function App() {
             img={PRODUCT_1.img}
             name={PRODUCT_1.name}
             description={PRODUCT_1.description}
+          />
+        </div>
+
+        <div>
+          <CartItem
+            price={PRODUCT_1.price}
+            img={PRODUCT_1.img}
+            name={PRODUCT_1.name}
+            counter={counter}
+            setCounter={setCounter}
           />
         </div>
 

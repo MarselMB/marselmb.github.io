@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import close from './close.svg';
+import close from '../../../app/assets/close.svg';
 import styles from './Modal.module.scss';
 import IconButton from '../IconButton';
 
