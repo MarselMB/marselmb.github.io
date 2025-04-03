@@ -1,0 +1,9 @@
+@import '../../app/styles/vars';
+
+.header {
+  display: flex;
+  align-items: center;
+  height: $headerHeight;
+  padding: 0 30px;
+  gap: 60px;
+}

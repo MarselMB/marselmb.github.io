@@ -1,49 +1,69 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Layout from './widgets/Layout';
+import { BrowserRouter } from 'react-router-dom';
+import Modal from './shared/ui/Modal';
+import AddToCartBtn from './features/AddToCartBtn';
+import ProductCard from './widgets/ProductCard';
+import ProductDetails from './widgets/ProductDetails';
+import { PRODUCT_1 } from './app/constants/temp';
+import CartItem from './widgets/CartItem';
 
 function App() {
+  const [visibleModal, setVisibleModal] = useState<boolean>(false);
+  const [counter, setCounter] = useState<number>(0);
+
+  const handleOnClickOpenModal = () => {
+    setVisibleModal(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-
-        <div className="App-header-text">
-          <div className="App-header-text-name">Буляккулов Марсель</div>
-          <div className="App-header-text-city">г. Москва</div>
-        </div>
-      </header>
-
-      <main className="App-main">
+    <BrowserRouter>
+      <Layout>
         <div>
-          <h3>Цели</h3>
-
-          <p>
-            <ul>
-              <li>Научиться продвинутым возможностям Redux, Redux-Saga, Redux-thunk</li>
-              <li>Создавать SPA-приложения и оптимизировать их для production</li>
-              <li>Изучить TypeScript: писать чистый и лаконичный код, применяя эту технологию</li>
-              <li>Освоить интеграционные и юнит-тесты</li>
-              <li>Изучить GraphQL, Apollo, Relay</li>
-            </ul>
-
-            <div>
-              Также хочу узнать, как работает под капотом Webpack и Babel, освоить паттерны функционального
-              программирования и научиться их применять в React
-            </div>
-
-            <div>
-              <h3>Обо мне</h3>
-
-              <p>
-                Опыт в разработке - 1 год. За это время участвовал в разработке двух приложений цифровых двойников
-                технических установок. Стек: React + TS, Redux, MaterialUI.
-              </p>
-            </div>
-          </p>
+          <button type="button" onClick={handleOnClickOpenModal}>
+            Open modal
+          </button>
         </div>
-      </main>
-    </div>
+
+        <div>
+          <AddToCartBtn counter={counter} setCounter={setCounter} />
+        </div>
+
+        <div>
+          <ProductCard
+            price={PRODUCT_1.price}
+            img={PRODUCT_1.img}
+            name={PRODUCT_1.name}
+            description={PRODUCT_1.description}
+          />
+        </div>
+
+        <div>
+          <ProductDetails
+            price={PRODUCT_1.price}
+            category={PRODUCT_1.category}
+            img={PRODUCT_1.img}
+            name={PRODUCT_1.name}
+            description={PRODUCT_1.description}
+          />
+        </div>
+
+        <div>
+          <CartItem
+            price={PRODUCT_1.price}
+            img={PRODUCT_1.img}
+            name={PRODUCT_1.name}
+            counter={counter}
+            setCounter={setCounter}
+          />
+        </div>
+
+        <Modal visible={visibleModal} setVisible={setVisibleModal}>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique atque ea quod? Tempore debitis consectetur
+          repellendus minus quae deserunt voluptatibus velit provident nihil, eaque, eos officia a, autem at temporibus!
+        </Modal>
+      </Layout>
+    </BrowserRouter>
   );
 }
 
